@@ -1,9 +1,13 @@
 import "@/app/styles/globals.css";
-import { DM_Sans } from "next/font/google";
+import { Inter } from "next/font/google";
 import { PrismicPreview } from "@prismicio/next";
 import { repositoryName } from "@/prismicio";
 
-const dmSans = DM_Sans({ subsets: ["latin"] });
+const inter = Inter({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-inter",
+});
 
 export default function RootLayout({
   children,
@@ -11,7 +15,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="">
+    <html lang="en" className={`${inter.variable} `}>
       <body>{children}</body>
       <PrismicPreview repositoryName={repositoryName} />
     </html>
